@@ -2,7 +2,7 @@
 
 This repository contains the solutions to the assignments for the **Visual Computing** course.
 
-![Visual Computing]([https://example.com/your-image-url.jpg](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fvr-wallpaper&psig=AOvVaw028xjuUBmNdDQbSJ1yluCw&ust=1757633243626000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCJDVkp6sz48DFQAAAAAdAAAAABAL)) <!-- Replace with your image URL -->
+![Visual Computing](https://imgcdn.stablediffusionweb.com/2024/10/14/c952a888-48d2-4575-9dd6-6bc35c2b8060.jpg) <!-- Replace with your image URL -->
 
 ## Repository Structure 📁
 
