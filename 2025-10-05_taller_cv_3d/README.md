@@ -73,3 +73,43 @@ _(More exercises will be added here as they are completed.)_
 
 - **Dependencies:** React, Three.js, and related libraries as specified in the `package.json` file within the exercise folder.
 - **Execution:** The 3D scenes are hosted on CodeSandbox for live interaction. Local setup involves running `npm install` and `npm start`.
+
+## Repository Structure
+
+```
+2025-10-05_taller_cv_3d/
+├── ejercicios/
+│   ├── 01_jerarquias_transformaciones/
+│   ├── 02_ojos_digitales_opencv/
+│   ├── 03_segmentacion_umbral_contornos/
+│   ├── 04_imagen_matriz_pixeles/
+│   ├── 05_rasterizacion_clasica/
+│   ├── 06_analisis_figuras_geometricas/
+│   ├── 07_conversion_formatos_3d/
+│   ├── 08_escenas_parametricas/
+│   ├── 09_convoluciones_personalizadas/
+│   ├── 10_modelos_color_percepcion/
+│   │   ├── python/
+│   │   └── threejs/
+│   ├── 11_proyecciones_camara/
+│   └── 12_gestos_webcam_mediapipe/
+│       ├── gesture_controller.py
+│       └── gesture_minigame.py
+├── assets/
+│   └── 10/
+│       └── comparisson.png
+├── gifs/
+│   ├── 10/
+│   │   ├── python.gif
+│   │   └── threejs.gif
+│   └── 12/
+│       ├── gestures.gif
+│       └── mini-game.gif
+├── README.md
+└── docs/
+```
+
+## Credits/References
+
+- The gesture recognition capabilities in Exercise 12 are powered by the **MediaPipe Hands** library by Google.
+- The interactive 3D scenes in Exercise 10 were built using the **React Three Fiber** and **leva** libraries.
