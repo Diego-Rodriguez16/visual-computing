@@ -14,6 +14,84 @@ This section details the exercises that have been completed so far.
 
 ---
 
+## Exercise 2 — Digital Eyes (Filters and Edges with OpenCV)
+
+### Objective
+Understand the basic flow of visual perception in digital images: grayscale conversion, smoothing, sharpening, and edge detection using different methods.
+
+### General Description
+An image was loaded and the following steps were applied:  
+1. Conversion to **grayscale**.  
+2. Application of **smoothing (blur)** and **sharpen** filters.  
+3. Edge detection using the **Sobel X**, **Sobel Y**, and **Laplacian** operators.  
+4. (Bonus) Use of **interactive sliders** to adjust parameters in real time with **cv2.createTrackbar** and live visualization with the webcam.
+
+### 📸 Evidence
+- **Collage with results:**
+<img width="550" alt="Collage_efectos" src="https://github.com/user-attachments/assets/1ff1bc4d-bae0-4817-a7d5-754ae31521d2" />
+
+- **Animated GIF:** showing real-time filter changes (sliders + webcam).
+
+<img width="400" alt="blur_shapen_sliders" src="https://github.com/user-attachments/assets/941bb904-dcbb-4858-96d4-9ec1e74063cf" />
+
+**Link to the code:**
+ >  [Colab Code](./ejercicio_2_ojos_digitales.ipynb)
+
+
+### Analysis of Differences Between Methods
+- **Blur (smoothing):** reduces noise and fine details, ideal for preprocessing.  
+- **Sharpen:** enhances edges and contrasts, but may amplify noise.  
+- **Sobel:** detects directional edges; useful for vertical (X) and horizontal (Y) gradients.  
+- **Laplacian:** computes the second derivative; detects edges regardless of direction, though it can be more sensitive to noise.
+
+### Prompts Used
+- "Que métodos proporciona OpenCV para aplicar blur, sharpen y Sobel? "
+- "Como funciona y como puedo aplicar cv2.createTrackbar?"  
+
+### Personal Comments
+- **Learning:** I understood how filters highlight or smooth specific features of an image.  
+- **Challenge:** Achieving a good combined visualization of edges without saturating the image.  
+---
+##  Exercise 4 — Image = Matrix (Channels, Slicing, Histograms)
+
+###  Objective
+Manipulate pixels and image regions directly, exploring how color channels are represented and how brightness and contrast adjustments influence the result.
+
+###  General Description
+1. Separation of **RGB** channels and conversion to **HSV**.  
+2. Region editing through **slicing** (zone modification and copy/paste of sections).  
+3. Generation of **intensity histograms**.  
+4. Adjustment of **brightness and contrast** using `cv2.convertScaleAbs()`.  
+5. (Bonus) Local interactive sliders to modify brightness and contrast in real time.
+
+### 📸 Evidence
+- **Before and after by regions:**
+  - Slicing with color editing.
+    
+  ![slicing_bf_aft](https://github.com/user-attachments/assets/e66391b3-b450-4725-a69f-dfd371e490d3)
+
+- **Histograms:**
+  - Comparison between original and adjusted image.
+  <img width="600" alt="original_vs_trans" src="https://github.com/user-attachments/assets/1d48d154-5176-4594-b0f0-eac252213ee7" />
+
+- **Animated GIF:** showing brightness and contrast modifications with sliders.
+  <img width="700" alt="bright_contrast_slider" src="https://github.com/user-attachments/assets/91c94203-2470-4991-bcf2-f637fd6f7ae8" />
+
+**Link to the code:**
+>  [Colab Code](./ejercicio_4_matriz_pixeles.ipynb)
+
+###  Personal Comments
+- **Learning:** I gained a better understanding of how an image is a matrix and how to manipulate pixels directly.  
+- **Challenge:** adjusting brightness and contrast without saturating values or losing details.  
+
+
+
+###  Prompts Used
+- "Como hago para separar RGB/HSV de una imagen jpg usando openCV?"
+- "Comomanipulo el brillo y el contraste usando openCV?"  
+
+
+---
 ### Exercise 5 — Rasterization from Scratch
 
 - **Brief Explanation:**  
@@ -40,6 +118,7 @@ This section details the exercises that have been completed so far.
   - **Challenges:** Ensuring pixel accuracy without floating-point errors was key, especially for steep lines and edge cases in the scanline algorithm.
 
 ---
+
 
 ### Exercise 9 — Visual Filter (Custom Convolutions)
 
@@ -133,8 +212,12 @@ _(More exercises will be added here as they are completed.)_
 ├── ejercicios/
 │   ├── 01_jerarquias_transformaciones/
 │   ├── 02_ojos_digitales_opencv/
+│   │   ├── ejercicio_2_ojos_digitales.ipynb
+│   │   └── webcam_filters_sliders.py
 │   ├── 03_segmentacion_umbral_contornos/
 │   ├── 04_imagen_matriz_pixeles/
+│   │   ├── ejercicio_4_matriz_pixeles.ipynb
+│   │   └── imagen_matriz_pixeles_sliders.py
 │   ├── 05_rasterizacion_clasica/
 │       └── 05_rasterizacion_clasica.ipynb
 │   ├── 06_analisis_figuras_geometricas/
@@ -152,6 +235,10 @@ _(More exercises will be added here as they are completed.)_
 ├── assets/
 │   └── 10/
 │       └── comparisson.png
+│   └── 2/
+│       └── Auto_P1Senna.jpg
+│   └── 4/
+│       └── Guacamaya.jpg
 │   └── 5/
 │       ├── bresenham.jpg
 │       ├── punto_medio.jpg
@@ -159,6 +246,10 @@ _(More exercises will be added here as they are completed.)_
 │   └── 9/
 │       └── lena_filtros.jpg
 ├── gifs/
+│   ├── 2/
+│   │   └── blur_shapen_sliders.gif
+│   ├── 4/
+│   │   └── bright_contrast_slider.gif
 │   ├── 10/
 │   │   ├── python.gif
 │   │   └── threejs.gif
