@@ -176,6 +176,91 @@ Run:
 python analizar_formas.py
 ```
 
+---
+
+### Exercise 7 — Importing the World (OBJ/STL/GLTF)
+
+### Objective
+Explore techniques for manipulating, analyzing, and visualizing 3D models in different formats (`.OBJ`, `.STL`, `.GLTF`), using Python with Trimesh and JavaScript with React Three Fiber. Understand the internal structure of 3D models, compare their geometric properties, and visualize differences between file formats.
+
+### General Description
+
+This exercise is divided into two main implementations:
+
+#### Python Implementation:
+1. **Model Loading:** Load 3D models using `trimesh.load()` for various formats.
+2. **Property Analysis:** Extract geometric information including vertices, faces, normals, textures, volume, and center of mass.
+3. **Format Conversion:** Transform models between different formats (.OBJ, .STL, .GLTF) using `mesh.export()`.
+4. **Visualization:** Render models using Matplotlib with 3D projections for comparative analysis.
+
+#### React Three Fiber Implementation:
+1. **Interactive Viewer:** Create a web-based 3D model viewer with format switching capabilities.
+2. **Model Loading:** Implement format-specific loaders for each 3D file type.
+3. **Statistics Display:** Show real-time information about loaded models (vertex count, format, file size).
+4. **Camera Controls:** Enable orbit controls for interactive 3D navigation.
+
+### 📸 Evidence
+
+**Python - Model Analysis and Visualization:**
+![Python Analysis](./ejercicios/07_conversion_formatos_3d/python/demo.png)
+
+**React Three Fiber - Interactive 3D Viewer:**
+![Three.js Viewer](./ejercicios/07_conversion_formatos_3d/threejs/demo.gif)
+
+**Link to the code:**
+- [Python Implementation](./ejercicios/07_conversion_formatos_3d/python/)
+- [React Three Fiber Viewer](./ejercicios/07_conversion_formatos_3d/threejs/)
+
+### Analysis of Format Differences
+
+- **OBJ Format:** Best for preserving texture coordinates (UV mapping) and material definitions. Widely supported but lacks animation support.
+- **STL Format:** Simple and robust, ideal for 3D printing applications. Only stores geometry (vertices and faces), no color or texture information.
+- **GLTF Format:** Modern web-optimized format supporting materials, textures, animations, and PBR workflows. Ideal for real-time rendering in web applications.
+
+---
+
+### Exercise 8 — Parametric Scenes (Objects from Data)
+
+### Objective
+Explore techniques for programmatic generation of 3D objects from structured data, using Python with vedo/trimesh/open3d and JavaScript with React Three Fiber. Understand how to create geometry in real-time through code, using loops, conditionals, and data-driven parametrization.
+
+### General Description
+
+This exercise demonstrates how to transform abstract data into 3D geometric representations through parametric generation:
+
+#### Python Implementation:
+1. **Data Generation:** Create random 3D point distributions or load from CSV files.
+2. **Parametric Objects:** Generate primitives (spheres, cubes, cylinders) with data-driven properties.
+3. **Conditional Styling:** Apply different geometries and properties based on data conditions.
+4. **Visualization:** Render scenes using vedo with interactive controls.
+5. **Export:** Save generated scenes to standard 3D formats (.OBJ, .STL, .GLTF).
+
+#### React Three Fiber Implementation:
+1. **Data Visualization:** Transform data arrays into 3D object collections.
+2. **Layout Systems:** Implement circular, grid, and spiral arrangements.
+3. **Interactive Controls:** Use Leva for real-time parameter adjustment.
+4. **Dynamic Regeneration:** Update scenes based on user input and data changes.
+
+### 📸 Evidence
+
+**Python - Parametric Scene Generation:**
+![Python Parametric](./ejercicios/08_escenas_parametricas/python/demo.gif)
+
+**React Three Fiber - Interactive Data Visualizer:**
+![Three.js Parametric](./ejercicios/08_escenas_parametricas/threejs/demo.gif)
+
+**Link to the code:**
+- [Python Implementation](./ejercicios/08_escenas_parametricas/python/)
+- [React Three Fiber Visualizer](./ejercicios/08_escenas_parametricas/threejs/)
+
+### Parametric Concepts Explored
+
+- **Data-Driven Geometry:** Object properties (size, position, color) controlled by input data.
+- **Procedural Generation:** Algorithmic creation of complex scenes from simple rules.
+- **Layout Algorithms:** Spatial arrangement patterns (circular, grid, spiral, random).
+- **Conditional Rendering:** Different geometries based on data thresholds or categories.
+- **Real-Time Updates:** Dynamic scene regeneration based on parameter changes.
+---
 
 ### Exercise 9 — Visual Filter (Custom Convolutions)
 
