@@ -52,6 +52,33 @@ An image was loaded and the following steps were applied:
 - **Learning:** I understood how filters highlight or smooth specific features of an image.  
 - **Challenge:** Achieving a good combined visualization of edges without saturating the image.  
 ---
+##  Exercise 3 — Segmenting the World (Binarization and Contours)
+
+###  Objective
+Apply image segmentation techniques using fixed and adaptive thresholding, and detect shapes through contours and image moments.
+
+###  General Description
+1. Apply **fixed thresholding** using `cv2.threshold()`.  
+2. Use **adaptive thresholding** with `cv2.adaptiveThreshold()`.  
+3. Detect **contours** with `cv2.findContours()`.  
+4. Compute **centroids** using **image moments**.  
+5. Calculate **area** and **perimeter** for each contour.  
+6. (Bonus) Classify shapes based on the number of **vertices** using `cv2.approxPolyDP()`.
+
+### 📸 Evidence
+- **Animated GIF:**
+  
+  <img width="700" alt="segmentation_pipeline" src="https://github.com/user-attachments/assets/eec9833a-97ef-4f67-8391-25c4e1588d9f"/>
+
+
+**Link to the code:**
+> [Python Code](./ejercicios/03_segmentacion_umbral_contornos/ejercicio_3_segmentando_el_mundo.py)
+
+###  Personal Comments
+- **Learning:** I gained a better understanding of how thresholding techniques help separate objects from the background, and how contours are useful for shape analysis.  
+- **Challenge:** Finding the right thresholding parameters for different images and classifying complex shapes based on their geometry.
+
+
 ##  Exercise 4 — Image = Matrix (Channels, Slicing, Histograms)
 
 ###  Objective
@@ -118,6 +145,36 @@ Manipulate pixels and image regions directly, exploring how color channels are r
   - **Challenges:** Ensuring pixel accuracy without floating-point errors was key, especially for steep lines and edge cases in the scanline algorithm.
 
 ---
+
+### Exercise 6 Geometric Analysis (Centroid, Area, Perimeter)
+This project uses Python and OpenCV to detect and analyze geometric shapes in an image, calculating metrics like area, perimeter, and centroid.
+
+<img width="400" alt="blur_shapen_sliders" src="https://github.com/user-attachments/assets/4fa89d83-e5ca-4e5e-a9d5-d60f560da12c" />
+
+**Link to the code:**
+ >  [Python Code](./ejercicios/06_analisis_figuras_geometricas/ejercicio_6_analisis_geometrico.py)
+
+- **Personal Comments**
+Learning: The key was using cv2.RETR_TREE to find nested shapes and combining vertex counts with circularity for better classification.
+
+- **Challenges:**
+ The main challenge was handling noisy images, which required better contour filtering and clean label placement.
+
+- **Future Improvements:**
+  Dynamically adjust parameters based on image properties and explore ML for complex shape classification.
+
+**Dependencies and How to Run**
+  
+Install:
+```python
+pip install opencv-python numpy Pillow
+```
+**Prepare:** Place your image as image.jpg in the root folder.
+
+Run:
+```python
+python analizar_formas.py
+```
 
 
 ### Exercise 9 — Visual Filter (Custom Convolutions)
