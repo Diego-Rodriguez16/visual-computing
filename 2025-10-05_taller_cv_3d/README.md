@@ -35,7 +35,7 @@ An image was loaded and the following steps were applied:
 <img width="400" alt="blur_shapen_sliders" src="https://github.com/user-attachments/assets/941bb904-dcbb-4858-96d4-9ec1e74063cf" />
 
 **Link to the code:**
- >  [Colab Code](./ejercicio_2_ojos_digitales.ipynb)
+ >  [Colab Code](./ejercicios/02_ojos_digitales_opencv/ejercicio_2_ojos_digitales.ipynb)
 
 
 ### Analysis of Differences Between Methods
@@ -78,7 +78,7 @@ Manipulate pixels and image regions directly, exploring how color channels are r
   <img width="700" alt="bright_contrast_slider" src="https://github.com/user-attachments/assets/91c94203-2470-4991-bcf2-f637fd6f7ae8" />
 
 **Link to the code:**
->  [Colab Code](./ejercicio_4_matriz_pixeles.ipynb)
+>  [Colab Code](.ejercicios/04_imagen_matriz_pixeles/ejercicio_4_matriz_pixeles.ipynb)
 
 ###  Personal Comments
 - **Learning:** I gained a better understanding of how an image is a matrix and how to manipulate pixels directly.  
