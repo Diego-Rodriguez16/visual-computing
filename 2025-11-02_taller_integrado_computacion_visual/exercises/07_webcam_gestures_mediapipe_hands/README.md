@@ -31,7 +31,7 @@ These gestures are then mapped to control the properties of a circle drawn on th
 
 #### Animated GIF:
 
-![Interactive gif](../assets/gestures.gif)
+![Interactive gif](../../gifs/07/gestures.gif)
 
 ### V2: "Pop the Target" Minigame
 
@@ -49,7 +49,7 @@ The game logic checks if the player's cursor is inside the target's radius while
 
 #### Animated GIF:
 
-![Interactive gif](../assets/mini-game.gif)
+![Interactive gif](../../gifs/07/mini-game.gif)
 
 ## Comments:
 

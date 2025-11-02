@@ -2,7 +2,7 @@
 
 ## Workshop Summary
 
-This repository documents the work completed for the Visual Computing & 3D Workshop.
+This repository documents the work completed for the workshop, showing interactive visual experiences that integrate 3D modeling, PBR materials, custom shaders, dynamic textures, multimodal sensing (voice, gestures, EEG), and camera or environment control. Each section explores a component of the graphics and sensory pipeline, uniting visual perception, light physics, procedural geometry, and human-computer interaction.
 
 ## Exercises
 
