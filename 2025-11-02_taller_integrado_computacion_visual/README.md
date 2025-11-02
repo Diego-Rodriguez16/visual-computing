@@ -84,6 +84,70 @@ This section details the exercises that have been completed so far.
   - **Challenges:** Tuning gesture threshold/frame window for responsiveness vs. stability; handling mic noise; aligning OSC routes with the Processing sketch.
 
 ---
+## Exercise 10 — BCI Simulation (Synthetic EEG and Control)
+
+### Objective
+Simulate a Brain-Computer Interface (BCI) using synthetic EEG signals to classify mental states and trigger visual actions in real-time.
+
+### General Description
+1. Generation of **synthetic EEG signals** with Alpha (8-12 Hz) and Beta (13-30 Hz) bands.
+2. Implementation of **Butterworth bandpass filters** using `scipy.signal`.
+3. Calculation of **band energies** and classification based on thresholds.
+4. **Interactive controls** to simulate relaxed, active, and normal mental states.
+5. Real-time visualization with **PyGame** showing state changes through color, size, and metrics display.
+
+### Evidence
+- **Animated GIF:** showing mental state transitions and interactive controls.
+  
+  ![bci_simulation](./gifs/10/bci_simulation.gif)
+
+
+**Link to the code:**
+> [Python Code](./exercises/10_bci_simulation_synthetic_eeg_control/simulacion_BCI.py)
+
+### Personal Comments
+- **Learning:** I understood how EEG signals are processed and filtered to extract meaningful brain activity patterns.
+- **Challenge:** Implementing the bandpass filters correctly and tuning the classification thresholds for realistic state transitions.
+- **Insight:** The simulation effectively demonstrates how BCIs work by mapping brain signals to visual outputs.
+
+### Prompts Used
+- "Cómo implementar filtros pasa banda con scipy.signal para señales EEG?"
+- "Cómo generar señales EEG sintéticas con componentes Alpha y Beta?"
+- "Cómo crear una interfaz interactiva con PyGame para visualización en tiempo real?"
+
+---
+## Exercise 11 — Projective Spaces and Projection Matrices
+
+### Objective
+Explore projective geometry concepts through the implementation of orthographic and perspective projection matrices, visualizing 3D objects from different camera viewpoints.
+
+### General Description
+1. Implementation of **homogeneous coordinates** for 3D point representation.
+2. Creation of **orthographic and perspective projection matrices** from scratch.
+3. Development of **view matrices** (lookAt) for camera positioning.
+4. Visualization of a 3D cube from **4 different cameras** (Frontal, Superior, Lateral, Isometric).
+5. **Interactive selector** with `ipywidgets` to switch between cameras and projection types.
+6. **Depth visualization** using color gradients (Z-buffer simulation).
+
+### Evidence
+- **Animated GIF:** showing camera switching and projection type changes.
+  
+  ![conmutacion_camaras](./gifs/11/conmutacion_camaras.gif)
+
+
+**Link to the code:**
+> [Colab Notebook](./exercises/11_projective_spaces_and_projection_matrices/Espacios_proyectivos_matrices_proyeccion.ipynb)
+
+### Personal Comments
+- **Learning:** I gained deep understanding of how 3D graphics pipelines work, from world coordinates to screen space through matrix transformations.
+- **Challenge:** Implementing the projection matrices correctly and understanding the mathematical differences between orthographic and perspective projections.
+- **Insight:** The interactive selector made it clear how camera position and projection type dramatically affect the final 2D representation of 3D objects.
+
+### Prompts Used
+- "Cómo implementar coordenadas homogéneas en Python?"
+- "Cómo crear matrices de proyección y vista desde cero?"
+
+---
 
 ## Folder Structure
 
@@ -114,7 +178,11 @@ This section details the exercises that have been completed so far.
 │   │   │   └── multimodal_control.py
 │   │   └── README.md
 │   ├── 10_bci_simulation_synthetic_eeg_control/
+│   │   └── python/
+│   │       └── simulacion_BCI.py
 │   └── 11_projective_spaces_and_projection_matrices/
+│       └──  python/
+│           └── Espacios_proyectivos_matrices_proyeccion.ipynb
 │
 ├── assets/
 │   ├── 01/
@@ -145,8 +213,9 @@ This section details the exercises that have been completed so far.
 │   ├── 09/
 │   │   └── multimodal.gif
 │   ├── 10/
+│   │   └── bci_simulation.gif
 │   └── 11/
-│
+│   │   └── commutacion_camaras.gif
 └── README.md
 
 ```
