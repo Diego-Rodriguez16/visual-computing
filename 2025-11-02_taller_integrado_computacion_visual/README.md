@@ -53,6 +53,38 @@ This section details the exercises that have been completed so far.
 
 ---
 
+### 9. Multimodal Interfaces: Voice + Hand Gestures (OSC → Processing)
+
+- **Brief Explanation:**  
+  Real-time control of a Processing sketch using **voice** and **hand gestures** via Python. Supports solo actions (voice _or_ gesture) and **combo** (voice+gesture within a short time window). The combo (“hand up” + “adelante”) triggers a higher-priority action.
+
+- **Core Technologies:**  
+  Python (`OpenCV`, `MediaPipe`, `SpeechRecognition`, `PyAudio`, `pyttsx3` optional, `python-osc`) + Processing (`oscP5`).
+
+- **Key Results (GIF / Video):**  
+  ![Multimodal demo](./gifs/09/multimodal.gif)  
+  **Demo video:** [▶️ Watch](./assets/09/multimodal.mp4)
+
+- **OSC Mapping (Python → Processing):**
+
+  | Event Source      | OSC Address        | Processing Action                    | Color (RGB)        |
+  | ----------------- | ------------------ | ------------------------------------ | ------------------ |
+  | Gesture only      | `/saludo`          | `currentColor = color(255, 255, 0);` | Yellow (255,255,0) |
+  | Voice: “adelante” | `/adelante`        | `currentColor = color(0, 100, 255);` | Blue (0,100,255)   |
+  | Voice: “detener”  | `/detener`         | `currentColor = color(0);`           | Black (0,0,0)      |
+  | **Combo (V+G)**   | `/adelante_rapido` | `currentColor = color(0, 255, 0);`   | Green (0,255,0)    |
+
+- **Link to Code:**
+
+  - [View Multimodal Code](./exercises/09_multimodal_interfaces_voice_gestures/)
+  - Main script: `multimodal_control.py`
+
+- **Personal Comments:**
+  - **Learning:** Built a thread-safe event bus with timestamps, debounced gesture detection, and a **combo hold** to fuse modalities reliably.
+  - **Challenges:** Tuning gesture threshold/frame window for responsiveness vs. stability; handling mic noise; aligning OSC routes with the Processing sketch.
+
+---
+
 ## Folder Structure
 
 ```
@@ -76,6 +108,11 @@ This section details the exercises that have been completed so far.
 │   │   │   └── voz_control.py
 │   │   └── README.md
 │   ├── 09_multimodal_interfaces_voice_gestures/
+│   │   ├── processing/
+│   │   │   └── multimoal_reception.pde
+│   │   ├── python/
+│   │   │   └── multimodal_control.py
+│   │   └── README.md
 │   ├── 10_bci_simulation_synthetic_eeg_control/
 │   └── 11_projective_spaces_and_projection_matrices/
 │
@@ -89,6 +126,7 @@ This section details the exercises that have been completed so far.
 │   ├── 08/
 │   │   └── voice_control.mp4
 │   ├── 09/
+│   │   └── multimodal.mp4
 │   ├── 10/
 │   └── 11/
 │
@@ -105,6 +143,7 @@ This section details the exercises that have been completed so far.
 │   ├── 08/
 │   │   └── voice_control.gif
 │   ├── 09/
+│   │   └── multimodal.gif
 │   ├── 10/
 │   └── 11/
 │
