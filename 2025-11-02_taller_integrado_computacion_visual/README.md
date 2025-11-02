@@ -103,7 +103,7 @@ Simulate a Brain-Computer Interface (BCI) using synthetic EEG signals to classif
 
 
 **Link to the code:**
-> [Python Code](./exercises/10_bci_simulation_synthetic_eeg_control/simulacion_BCI.py)
+> [Python Code](./exercises/python/10_bci_simulation_synthetic_eeg_control/simulacion_BCI.py)
 
 ### Personal Comments
 - **Learning:** I understood how EEG signals are processed and filtered to extract meaningful brain activity patterns.
@@ -136,7 +136,7 @@ Explore projective geometry concepts through the implementation of orthographic 
 
 
 **Link to the code:**
-> [Colab Notebook](./exercises/11_projective_spaces_and_projection_matrices/Espacios_proyectivos_matrices_proyeccion.ipynb)
+> [Colab Notebook](./exercises/11_projective_spaces_and_projection_matrices/python/Espacios_proyectivos_matrices_proyeccion.ipynb)
 
 ### Personal Comments
 - **Learning:** I gained deep understanding of how 3D graphics pipelines work, from world coordinates to screen space through matrix transformations.
