@@ -103,7 +103,7 @@ Simulate a Brain-Computer Interface (BCI) using synthetic EEG signals to classif
 
 
 **Link to the code:**
-> [Python Code](./exercises/python/10_bci_simulation_synthetic_eeg_control/simulacion_BCI.py)
+> [Python Code](./exercises/10_bci_simulation_synthetic_eeg_control/python/simulacion_BCI.py)
 
 ### Personal Comments
 - **Learning:** I understood how EEG signals are processed and filtered to extract meaningful brain activity patterns.
