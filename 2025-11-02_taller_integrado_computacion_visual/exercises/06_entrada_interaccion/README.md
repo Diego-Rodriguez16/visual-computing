@@ -26,6 +26,7 @@
 ## 🧪 Implementación en Unity
 
 ### 🔹 Flujo General
+
 1. Configuración de personaje/cámara con componente Rigidbody para física realista.
 2. Implementación de sistema de movimiento WASD con velocidad constante.
 3. Controles de mouse para rotación de jugador (horizontal) y cámara (vertical).
@@ -70,6 +71,7 @@ void Update()
 ## 📊 Resultados Visuales
 
 El sistema implementa un control de primera persona completo y responsivo:
+
 - **Movimiento WASD:** Desplazamiento fluido en todas las direcciones con física realista
 - **Control de Mouse:** Rotación libre horizontal del jugador y vertical limitada de la cámara
 - **Sistema de Salto:** Mecánica de salto mediante click con aplicación de fuerza física
