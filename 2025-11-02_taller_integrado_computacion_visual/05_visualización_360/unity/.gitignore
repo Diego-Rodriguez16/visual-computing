@@ -1,0 +1,54 @@
+# .gitignore para proyecto Unity
+
+# Archivos generados por Unity
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+
+# Archivos de proyecto de IDE
+*.csproj
+*.sln
+*.suo
+*.userprefs
+
+# Archivos de Asset Store
+/[Aa]ssets/AssetStoreTools*
+
+# Autogenerados
+.vs/
+.gradle/
+*.apk
+*.unitypackage
+
+# Crashlytics
+crashlytics-build.properties
+
+# Archivos temporales
+*.tmp
+*.bak
+*.orig
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de paquetes
+**/Packages/manifest.json
+**/Packages/packages-lock.json
+
+# Archivos de autoguardado
+*.autosave
+
+# Configuraciones específicas de Unity
+/[Pp]rojectSettings/InputManager.asset
+/[Pp]rojectSettings/EditorBuildSettings.asset
+
+
+# Excepciones (mantener estos directorios)
+!/[Pp]rojectSettings/PackageManagerSettings.json
+!/[Aa]ssets/**/*.meta
+!/[Pp]ackages/manifest.json
