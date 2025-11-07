@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cuadrado con cambio de cámara (P / O)</title>
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <style>
+    html, body { margin:0; height:100%; background:#000; overflow:hidden; }
+    #info { position:absolute; top:10px; left:10px; color:#0f0; font-family:sans-serif; }
+  </style>
+</head>
+<body>
+  <div id="info">
+    🧱 Cuadrado con textura de ladrillo —<br>
+  </div>
+
+  <script>
+    // Escena
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x111111);
+
+    // Cámaras
+    const aspect = window.innerWidth / window.innerHeight;
+    const perspectiveCamera = new THREE.PerspectiveCamera(75, aspect, 0.1, 1000);
+    perspectiveCamera.position.set(0, 0, 3);
+    perspectiveCamera.lookAt(0, 0, 0);
+
+    const orthoSize = 3;
+    const orthoCamera = new THREE.OrthographicCamera(
+      -orthoSize * aspect, orthoSize * aspect, orthoSize, -orthoSize, 0.1, 1000
+    );
+    orthoCamera.position.set(0, 0, 3);
+    orthoCamera.lookAt(0, 0, 0);
+
+    let activeCamera = perspectiveCamera;
+
+    // Renderizador
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.outputEncoding = THREE.sRGBEncoding;
+    document.body.appendChild(renderer.domElement);
+
+    // Texturas PBR (ladrillo)
+    const loader = new THREE.TextureLoader();
+    const albedo = loader.load("https://threejs.org/examples/textures/brick_diffuse.jpg");
+    const normal = loader.load("https://threejs.org/examples/textures/brick_normal.jpg");
+    const rough = loader.load("https://threejs.org/examples/textures/brick_roughness.jpg");
+
+    const material = new THREE.MeshStandardMaterial({
+      map: albedo,
+      normalMap: normal,
+      roughnessMap: rough,
+      metalness: 0.1,
+      roughness: 0.8
+    });
+
+    // Cubo centrado
+    const geometry = new THREE.BoxGeometry(0.5, 2, 2);
+    const cube = new THREE.Mesh(geometry, material);
+    cube.position.set(0, 0, 0);
+    scene.add(cube);
+
+    // Luces
+    const keyLight = new THREE.DirectionalLight(0xffffff, 1.2);
+    keyLight.position.set(5, 3, 2);
+    scene.add(keyLight);
+
+    const fillLight = new THREE.DirectionalLight(0x3366ff, 0.5);
+    fillLight.position.set(-3, 2, 4);
+    scene.add(fillLight);
+
+    const rimLight = new THREE.DirectionalLight(0xff6600, 0.8);
+    rimLight.position.set(0, 3, -5);
+    scene.add(rimLight);
+
+    const ambient = new THREE.AmbientLight(0x404040, 0.4);
+    scene.add(ambient);
+
+    // Animación
+    function animate() {
+      requestAnimationFrame(animate);
+      cube.rotation.x += 0.01;
+      cube.rotation.y += 0.015;
+      renderer.render(scene, activeCamera);
+    }
+    animate();
+
+    // Cambiar cámara con teclado
+    window.addEventListener("keydown", (event) => {
+      if (event.key.toLowerCase() === "p") {
+        activeCamera = perspectiveCamera;
+        console.log("Cámara: Perspectiva");
+      }
+      if (event.key.toLowerCase() === "o") {
+        activeCamera = orthoCamera;
+        console.log("Cámara: Ortográfica");
+      }
+    });
+
+    // Ajustar al redimensionar
+    window.addEventListener("resize", () => {
+      const aspect = window.innerWidth / window.innerHeight;
+      perspectiveCamera.aspect = aspect;
+      perspectiveCamera.updateProjectionMatrix();
+
+      orthoCamera.left = -orthoSize * aspect;
+      orthoCamera.right = orthoSize * aspect;
+      orthoCamera.top = orthoSize;
+      orthoCamera.bottom = -orthoSize;
+      orthoCamera.updateProjectionMatrix();
+
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>
+
+
+
