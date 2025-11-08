@@ -16,9 +16,30 @@ This section details the exercises that have been completed so far.
   La escena se iluminó con un **sistema de luces múltiples**: key light, fill light, rim light y luz ambiental. La cámara se centró en el cubo con perspectiva, y se ajustó para mantener la proporción al cambiar el tamaño de la ventana.  
   También se incorporó **animación** para rotar el cubo, permitiendo observar las variaciones de luz y material desde diferentes ángulos.
 
-(./gifs/01/CuboLadrillo.gif)
+  ![🎥 gif](./gifs/08/CuboLadrillo.gif)
 
   Este ejercicio permitió comprender cómo **las texturas PBR y la iluminación múltiple** afectan la percepción de los materiales en 3D. Además, practicar la rotación animada y la gestión de la cámara refuerza el control sobre la escena y la composición visual.
+  
+### Ejercicio 2 — Modelado procedural desde código
+
+**Descripción general:**  
+Este ejercicio explora la generación de geometría mediante algoritmos, utilizando estructuras de control como bucles y funciones matemáticas para crear patrones espaciales. Se implementaron dos formas principales: una espiral y una rejilla, ambas animadas de forma dinámica para mostrar modificaciones de vértices en tiempo real.
+
+**Lo que se realizó:**  
+- Creación de una **espiral procedural** mediante cálculos trigonométricos (coseno y seno) que define posiciones de puntos en el espacio.  
+- Generación de una **rejilla** usando bucles anidados para distribuir vértices en una cuadrícula regular.  
+- **Modificación dinámica de vértices**: las posiciones de los puntos cambian cada cuadro según funciones sinusoidales, creando efectos de onda.  
+- Implementación de **rotaciones y transformaciones** para acentuar el dinamismo visual.  
+- Inclusión de un texto explicativo en pantalla comparando el **modelado procedural** (por código) con el **modelado manual** (por manipulación directa).
+
+**Comparativa:**  
+- El modelado procedural permite crear formas complejas con menos recursos, ideales para animaciones o entornos generativos.  
+- El modelado manual ofrece control artístico detallado, pero es menos eficiente para patrones repetitivos o matemáticamente definidos.
+  ![🎥 gif](./gifs/08/Espiral_rejilla.gif)
+
+Este ejercicio demuestra cómo el modelado por código puede producir resultados visualmente ricos y controlados, mostrando el potencial del pensamiento algorítmico en la creación tridimensional.
+
+---
 
 ### 7. Webcam Gesture Control
 
