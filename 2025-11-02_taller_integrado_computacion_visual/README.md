@@ -16,7 +16,7 @@ This section details the exercises that have been completed so far.
   La escena se iluminó con un **sistema de luces múltiples**: key light, fill light, rim light y luz ambiental. La cámara se centró en el cubo con perspectiva, y se ajustó para mantener la proporción al cambiar el tamaño de la ventana.  
   También se incorporó **animación** para rotar el cubo, permitiendo observar las variaciones de luz y material desde diferentes ángulos.
 
-  ![🎥 gif](./gifs/08/CuboLadrillo.gif)
+  ![🎥 gif](./gifs/01/CuboLadrillo.gif)
 
   Este ejercicio permitió comprender cómo **las texturas PBR y la iluminación múltiple** afectan la percepción de los materiales en 3D. Además, practicar la rotación animada y la gestión de la cámara refuerza el control sobre la escena y la composición visual.
   
@@ -35,7 +35,7 @@ Este ejercicio explora la generación de geometría mediante algoritmos, utiliza
 **Comparativa:**  
 - El modelado procedural permite crear formas complejas con menos recursos, ideales para animaciones o entornos generativos.  
 - El modelado manual ofrece control artístico detallado, pero es menos eficiente para patrones repetitivos o matemáticamente definidos.
-  ![🎥 gif](./gifs/08/Espiral_rejilla.gif)
+  ![🎥 gif](./gifs/02/Espiral_rejilla.gif)
 
 Este ejercicio demuestra cómo el modelado por código puede producir resultados visualmente ricos y controlados, mostrando el potencial del pensamiento algorítmico en la creación tridimensional.
 
