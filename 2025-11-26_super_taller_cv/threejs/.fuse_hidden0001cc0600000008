@@ -1,0 +1,63 @@
+
+> threejs-advanced@0.0.0 dev
+> vite
+
+
+  VITE v7.2.4  ready in 164 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+2:01:56 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:02:01 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:02:06 p. m. [vite] (client) hmr update /src/scenes/components/Dashboard.jsx
+2:02:08 p. m. [vite] (client) hmr update /src/scenes/components/Dashboard.jsx
+2:02:16 p. m. [vite] (client) hmr update /src/scenes/components/Dashboard.css
+2:02:22 p. m. [vite] (client) hmr update /src/scenes/components/Dashboard.css
+2:02:41 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:02:47 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:04:18 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:04:19 p. m. [vite] (client) ✨ new dependencies optimized: three/examples/jsm/modifiers/SimplifyModifier
+2:04:19 p. m. [vite] (client) ✨ optimized dependencies changed. reloading
+2:04:23 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:04:39 p. m. [vite] (client) hmr update /src/scenes/components/Dashboard.jsx
+2:04:40 p. m. [vite] (client) hmr update /src/scenes/components/Dashboard.jsx
+2:04:47 p. m. [vite] (client) hmr update /src/scenes/components/Dashboard.css
+2:04:52 p. m. [vite] (client) hmr update /src/scenes/components/Dashboard.css
+2:05:05 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:05:06 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:05:28 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:05:30 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:05:38 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:05:41 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:07:52 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:08:00 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:08:01 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:08:10 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:08:12 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:08:44 p. m. [vite] (client) hmr update /src/scenes/components/InteractiveModel.jsx
+2:08:45 p. m. [vite] (client) ✨ new dependencies optimized: three/examples/jsm/loaders/GLTFLoader
+2:08:45 p. m. [vite] (client) ✨ optimized dependencies changed. reloading
+2:08:52 p. m. [vite] (client) hmr update /src/scenes/components/InteractiveModel.jsx
+2:26:32 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:26:32 p. m. [vite] (client) hmr invalidate /src/scenes/MainScene.jsx Could not Fast Refresh (export removed)
+2:26:32 p. m. [vite] (client) hmr update /src/App.jsx
+2:26:33 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:26:33 p. m. [vite] (client) hmr invalidate /src/scenes/MainScene.jsx Could not Fast Refresh ("true" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+2:26:33 p. m. [vite] (client) hmr update /src/App.jsx
+2:26:55 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:26:56 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:28:48 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:28:49 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:29:06 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:29:07 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:29:38 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:29:40 p. m. [vite] (client) hmr update /src/scenes/MainScene.jsx
+2:33:40 p. m. [vite] (client) page reload docs/optimization_charts.html
+2:33:41 p. m. [vite] (client) page reload docs/optimization_charts.html
+2:33:42 p. m. [vite] (client) page reload docs/optimization_charts.html
+2:41:45 p. m. [vite] (client) hmr update /src/App.jsx
+2:41:54 p. m. [vite] (client) hmr update /src/App.css
+2:41:58 p. m. [vite] (client) hmr update /src/App.jsx
+2:41:58 p. m. [vite] (client) hmr update /src/App.css
+2:42:15 p. m. [vite] (client) hmr update /src/scenes/ARScene.jsx
+2:42:17 p. m. [vite] (client) hmr update /src/scenes/ARScene.jsx
