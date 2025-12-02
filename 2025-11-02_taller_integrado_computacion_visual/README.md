@@ -41,12 +41,12 @@ Este ejercicio demuestra cómo el modelado por código puede producir resultados
 
 ---
 ### 3. Custom Shaders and Effects
-Brief explanation:
-A set of shader experiments implemented with Shader Graph and hand-written HLSL/ShaderLab. The collection demonstrates color driven by world position, time, and interaction; stylized toon shading and gradients; wireframe overlays and UV distortion; and procedural / dynamic blending of texture maps.
 
-Core technologies:
-Unity (Built-in / URP), Shader Graph, HLSL/ShaderLab snippets, Shader keywords/properties, textures (albedo/normal/roughness/emissive), and optional Visual Effect Graph for combined effects.
-
+- **Brief explanation:**  
+    A set of shader experiments implemented with **Shader Graph** and hand-written **HLSL/ShaderLab**. The collection demonstrates color driven by world position, time, and interaction; stylized toon shading and gradients; wireframe overlays and UV distortion; and procedural / dynamic blending of texture maps.
+    
+- **Core technologies:**  
+    Unity (Built-in / URP), Shader Graph, HLSL/ShaderLab snippets, Shader keywords/properties, textures (albedo/normal/roughness/emissive), and optional Visual Effect Graph for combined effects.
 **Key results (GIFs):**
 
  | ![🎥 gif](./gifs/03/tv.gif) | ![🎥 gif](./gifs/03/disapear.gif) |
