@@ -47,6 +47,7 @@ Este ejercicio demuestra cómo el modelado por código puede producir resultados
     
 - **Core technologies:**  
     Unity (Built-in / URP), Shader Graph, HLSL/ShaderLab snippets, Shader keywords/properties, textures (albedo/normal/roughness/emissive), and optional Visual Effect Graph for combined effects.
+  
 **Key results (GIFs):**
 
  | ![🎥 gif](./gifs/03/tv.gif) | ![🎥 gif](./gifs/03/disapear.gif) |
