@@ -508,3 +508,175 @@ npm run build
 - **`docs/optimization_charts.html`** - Visualización interactiva de métricas
 
 ---
+## Punto E: Fine-Tuning en Redes Neuronales para Clasificación de Dígitos
+
+## 🎯 Objetivo del Punto
+Implementar **fine-tuning** en modelos preentrenados (**ResNet18** y **MobileNetV2**) para clasificación de dígitos escritos a mano del dataset **MNIST**, utilizando validación cruzada y comparando resultados.
+
+---
+
+## Métricas de Evaluación
+
+Comparativa de rendimiento entre las dos arquitecturas seleccionadas:
+
+| Métrica | ResNet18 | MobileNetV2 |
+| :--- | :---: | :---: |
+| **Accuracy Validación (Promedio)** | **98.94%** ± 0.05% | 98.56% ± 0.14% |
+| **Accuracy en TEST** | **99.20%** | 98.88% |
+| **Loss Validación (Promedio)** | 0.0375 ± 0.0025 | 0.0492 ± 0.0030 |
+| **Tiempo Promedio por Fold** | **484.41s** | 560.73s |
+
+---
+
+## ⚙️ Arquitectura del Proyecto
+
+### 1. Preprocesamiento de Datos
+**Archivo:** `taller_4_deeplearning_ft.ipynb` (celdas 8-11)
+
+Transformación del dataset MNIST (28×28 escala de grises) al formato requerido por modelos preentrenados (224×224 RGB con normalización ImageNet):
+
+```python
+transform = transforms.Compose([
+    transforms.Resize((224, 224)),
+    transforms.Grayscale(num_output_channels=3),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+])
+```
+### 2. Configuración de Modelos
+**Archivo:** `taller_4_deeplearning_ft.ipynb` (celdas 23-30)
+
+Implementación de **fine-tuning** reemplazando las capas finales de clasificación para adaptarlas al número de clases del problema (10 dígitos):
+
+```python
+# ResNet18 con fine-tuning
+def create_resnet(num_classes=10):
+    model = models.resnet18(pretrained=True)
+    num_ftrs = model.fc.in_features
+    model.fc = nn.Linear(num_ftrs, num_classes)
+    return model
+
+
+# MobileNetV2 con fine-tuning
+def create_mobilenet(num_classes=10):
+    model = models.mobilenet_v2(pretrained=True)
+    num_ftrs = model.classifier[1].in_features
+    model.classifier[1] = nn.Linear(num_ftrs, num_classes)
+    return model
+```
+### 3. Validación Cruzada con K-Folds
+**Archivo:** `taller_4_deeplearning_ft.ipynb` (celda 38)
+
+Se define la función para ejecutar la validación cruzada, lo que permite evaluar la estabilidad y el rendimiento del modelo en diferentes subconjuntos de datos.
+
+
+
+```python
+def cross_validation_with_val(model_name, create_model_fn, train_dataset, val_dataset, k_folds=3):
+    kfold = KFold(n_splits=k_folds, shuffle=True, random_state=42)
+    # Configuración completa de entrenamiento por fold
+```
+### 4. Entrenamiento y Evaluación
+**Archivo:** `taller_4_deeplearning_ft.ipynb` (celdas 44-70)
+
+Se establecen los parámetros del ciclo de aprendizaje y la estrategia de división de datos para asegurar una evaluación justa:
+
+
+
+* **Entrenamiento:** 3 épocas por fold utilizando el optimizador **Adam** (`lr=0.001`).
+* **División de datos:**
+    * 80% Entrenamiento
+    * 10% Validación
+    * 10% Prueba
+* **Batch Size:** 128
+* **Función de Pérdida:** `CrossEntropyLoss`
+  
+### 5. Visualización de Resultados
+**Archivo:** `taller_4_deeplearning_ft.ipynb` (celdas 73-77)
+
+Generación de gráficos comparativos para el análisis visual del rendimiento:
+
+
+<img width="1790" height="990" alt="rendimi_taller4" src="https://github.com/user-attachments/assets/406fa861-b467-449b-924e-4fbf4f41da7f" />
+
+
+
+* **Accuracy:** Entrenamiento vs Validación por fold.
+* **Pérdida (Loss):** Entrenamiento vs Validación por fold.
+* **Tiempo:** Comparación de tiempo de entrenamiento por fold.
+* **Comparativa Final:** ResNet18 vs MobileNetV2.
+
+---
+
+## 🛠️ Requisitos de Ejecución
+
+### Dependencias
+* PyTorch 1.8+
+* torchvision
+* scikit-learn
+* matplotlib
+* numpy
+* tqdm
+
+### Instalación
+```bash
+pip install torch torchvision scikit-learn matplotlib numpy tqdm
+```
+### 🖥️ Configuración de Hardware
+* **Dispositivo preferido:** CUDA GPU
+* **Memoria mínima:** 4GB VRAM
+* **Alternativa:** CPU (tiempos de entrenamiento más largos)
+
+---
+
+## Hiperparámetros Configurados
+
+| Parámetro | Valor | Descripción |
+| :--- | :--- | :--- |
+| `BATCH_SIZE` | 128 | Tamaño del lote para entrenamiento |
+| `NUM_EPOCHS` | 3 | Número de épocas por fold |
+| `LEARNING_RATE` | 0.001 | Tasa de aprendizaje del optimizer Adam |
+| `K_FOLDS` | 3 | Número de folds para validación cruzada |
+| `NUM_CLASSES` | 10 | Dígitos del 0 al 9 |
+
+---
+
+## 📈 Resultados Clave
+
+### Comparación de Modelos
+* **ResNet18** supera ligeramente a MobileNetV2 en accuracy (**99.20%** vs 98.88%).
+* **MobileNetV2** requiere aproximadamente **16% más tiempo** de entrenamiento por fold.
+* Ambos modelos muestran excelente generalización (>98.5% en validación).
+
+### Efectividad del Fine-Tuning
+* Logra más del **99% de accuracy** con solo 3 épocas de entrenamiento.
+* Demuestra transfer learning efectivo desde ImageNet a MNIST.
+* La validación cruzada asegura robustez del modelo.
+
+---
+
+##  Instrucciones de Uso
+
+### Ejecución completa
+```bash
+jupyter notebook taller_4_deeplearning_ft.ipynb
+```
+### Entrenamiento individual
+1.  Las celdas **44-45** entrenan **ResNet18**.
+2.  Las celdas **46-47** entrenan **MobileNetV2**.
+3.  *Los modelos se guardan automáticamente al finalizar.*
+
+### Evaluación
+* Los resultados se imprimen en consola.
+* Los gráficos comparativos se generan automáticamente.
+* Los modelos guardados quedan listos para inferencia.
+
+---
+
+## 📝 Conclusiones
+* **Fine-tuning efectivo:** Los modelos preentrenados se adaptan exitosamente a la tarea de clasificación de dígitos.
+* **ResNet18 superior:** Mejor equilibrio entre accuracy y tiempo de entrenamiento.
+* **Validación robusta:** K-Fold validation asegura modelos generalizables.
+* **Alto rendimiento:** Más del 99% de accuracy demuestra efectividad del enfoque.
+
+> **Nota:** El notebook está configurado para usar GPU si está disponible, acelerando significativamente el entrenamiento.
