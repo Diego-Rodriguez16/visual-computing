@@ -40,6 +40,200 @@ Este ejercicio explora la generación de geometría mediante algoritmos, utiliza
 Este ejercicio demuestra cómo el modelado por código puede producir resultados visualmente ricos y controlados, mostrando el potencial del pensamiento algorítmico en la creación tridimensional.
 
 ---
+### 3. Custom Shaders and Effects
+Brief explanation:
+A set of shader experiments implemented with Shader Graph and hand-written HLSL/ShaderLab. The collection demonstrates color driven by world position, time, and interaction; stylized toon shading and gradients; wireframe overlays and UV distortion; and procedural / dynamic blending of texture maps.
+
+Core technologies:
+Unity (Built-in / URP), Shader Graph, HLSL/ShaderLab snippets, Shader keywords/properties, textures (albedo/normal/roughness/emissive), and optional Visual Effect Graph for combined effects.
+
+**Key results (GIFs):**
+
+ | ![🎥 gif](./gifs/03/tv.gif) | ![🎥 gif](./gifs/03/disapear.gif) |
+|----------------------------|-----------------------------------|
+ 
+**Essential shader snippets and notes**
+
+1. **World-position + time coloration (HLSL / simple unlit):**
+```csharp
+Shader "Custom/WorldTimeColor"
+{
+    Properties {
+        _MainTex ("Base", 2D) = "white" {}
+        _Speed ("Time Speed", Float) = 1.0
+    }
+    SubShader {
+        Tags { "RenderType"="Opaque" }
+        Pass {
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            #include "UnityCG.cginc"
+
+            sampler2D _MainTex;
+            float _Speed;
+
+            struct appv { float4 vertex : POSITION; float2 uv : TEXCOORD0; };
+            struct v2f  { float4 pos : SV_POSITION; float2 uv : TEXCOORD0; float3 wpos : TEXCOORD1; };
+
+            v2f vert(appv v) {
+                v2f o;
+                o.pos = UnityObjectToClipPos(v.vertex);
+                o.uv  = v.uv;
+                o.wpos = mul(unity_ObjectToWorld, v.vertex).xyz;
+                return o;
+            }
+
+            fixed4 frag(v2f i) : SV_Target {
+                float h = i.wpos.y * 0.2;                  // use height
+                float t = _Time.y * _Speed * 0.1;          // time factor
+                float blend = frac(h + t);                 // cycling blend
+                fixed4 basec = tex2D(_MainTex, i.uv);
+                fixed4 outc = lerp(basec, fixed4(1,0.5,0.2,1), blend);
+                return outc;
+            }
+            ENDCG
+        }
+    }
+}
+
+```
+- **Shader Graph equivalents & patterns**
+    
+    - Use `Position (World)` → split → `Y` as mask for height-based color blending.
+        
+    - Use `Time` node + `Sine`/`Noise` nodes for animated hue shifts.
+        
+    - Toon shading: compute `N·L`, pass through `Step` or sample a ramp texture (1D gradient) to quantize lighting.
+        
+    - Wireframe: generate barycentric coords on mesh (imported mesh with barycentric attributes) or use a second pass with edge detection in screen-space.
+        
+    - UV distortion: offset UV by procedural noise (`SimpleNoise` / `Voronoi`) multiplied by time.
+        
+- **Procedural / dynamic texture blending**
+    
+    - Mix multiple albedo maps using procedural masks (Perlin noise, height-based masks, or runtime-painted masks).
+        
+    - Use `MaterialPropertyBlock` or shader keywords to switch blend modes at runtime to avoid material duplication.
+
+**Personal comments:**
+
+- **Learning:** Shader Graph accelerates iteration; HLSL is required for fine control (barycentric wireframes, custom blending).
+    
+- **Challenges:** keeping parity between Built-in/URP/ HDRP (some nodes or macros differ), and ensuring correct normal space when distorting UVs.
+    
+- **Improvements:** add a small custom editor to toggle debug views (normals, masks, UVs) and provide material presets (Toon, Hologram, Wet Surface).
+
+
+### 4. Dynamic Texturing and Particles
+
+- **Brief explanation:**  
+    Materials that react to time, user input, or sensors (simulated EEG / OSC), combined with particle systems synchronized to the same events. Techniques include animated maps (emissive ramps, animated normal maps, UV offsets), noise-driven normal/emissive, and particle bursts tied to material parameter changes.
+    
+- **Core technologies:**  
+    Unity Particle System (Shuriken) and/or Visual Effect Graph (for GPU particle sets), C# scripting for runtime parameter updates, MaterialPropertyBlock, animated texture atlases, and optional compute shaders for high-performance updates.
+    
+- **Key results (GIFs):**
+
+ |![🎥 gif](./gifs/04/Globe.gif) | ![🎥 gif](./gifs/04/Explosion.gif)|
+|----------------------------|-----------------------------------|
+
+**C# script: shader ↔ particle synchronization**
+
+
+```csharp
+// Assets/Scripts/ShaderParticleSync.cs
+using UnityEngine;
+
+[RequireComponent(typeof(Renderer))]
+public class ShaderParticleSync : MonoBehaviour
+{
+    public ParticleSystem ps;
+    Renderer rend;
+    MaterialPropertyBlock mpb;
+    public string shaderFloatName = "_Pulse";
+    public float pulseSpeed = 1f;
+    public float pulseThreshold = 0.6f;
+
+    void Awake() {
+        rend = GetComponent<Renderer>();
+        mpb = new MaterialPropertyBlock();
+    }
+
+    void Update() {
+        // compute a periodic value (could be driven by sensors or OSC)
+        float value = 0.5f + 0.5f * Mathf.Sin(Time.time * pulseSpeed);
+
+        // set material property (using MPB avoids creating new material instances)
+        rend.GetPropertyBlock(mpb);
+        mpb.SetFloat(shaderFloatName, value);
+        rend.SetPropertyBlock(mpb);
+
+        // trigger particle bursts when value passes threshold
+        if (value > pulseThreshold && Random.value > 0.8f) {
+            var emitParams = new ParticleSystem.EmitParams();
+            emitParams.startColor = Color.Lerp(Color.cyan, Color.magenta, value);
+            emitParams.startSize = 0.2f + value * 0.5f;
+            ps.Emit(emitParams, 15);
+        }
+    }
+}
+```
+- - **Notes:**
+        
+        - Use `MaterialPropertyBlock` to control material parameters per renderer without instancing.
+            
+        - For large numbers of objects, use GPU-driven VFX Graph where particles read the same param buffer or a texture (e.g., a "control" texture) that encodes event data.
+            
+- **Animated maps & normal/emissive update patterns**
+    
+    - **UV offset animation:** `mainTexOffset += speed * Time.deltaTime` (set from script or from shader `Time` node).
+        
+    - **Animated normal:** use a scrolling normal map or blend multiple normal maps via noise to create dynamic micro-surface.
+        
+    - **Emissive pulsing:** use shader `_EmissivePower` driven by a sin/noise function; clamp and optionally feed into bloom for glow.
+        
+- **Particle system patterns**
+    
+    - **Parameter-driven emission:** modify emission rate, burst intensity, particle color/size based on material parameter (as in script above).
+        
+    - **Collision-driven particles:** set particle collision modules to spawn particles on contact and use collision events to change material masks (e.g., paint-on-collision).
+        
+    - **GPU VFX Graph integration:** write material control values into a RenderTexture or Shader storage buffer, then sample it inside the VFX Graph to influence particle spawn or behavior.
+        
+- **Event coordination: shader + particles**
+    
+    - Use an event manager or OSC listener to broadcast a named event (e.g., `PulseEvent(strength)`); subscribers include: material controllers, particle emitters, camera post-processing controllers.
+        
+    - Keep strong separation: one system produces events, others react (helps testing & reuse).
+        
+- **Personal comments:**
+    
+    - **Learning:** synchronizing particles and shaders creates perceived cohesion — small, well-timed particle bursts dramatically increase impact.
+        
+    - **Challenges:** balancing performance (CPU vs GPU particles), and avoiding material instancing explosion when driving many objects individually.
+        
+    - **Improvements:** move heavy per-particle updates to GPU (VFX Graph or compute shaders) and use shared RTs / property blocks for control.
+        
+
+---
+
+## Combined usage (3 + 4): workflow & integration
+
+- **How they connect:**
+    
+    1. Procedural mesh or animated mesh provides geometric input (vertex height, UVs).
+        
+    2. Shader reads mesh attributes (world position, vertex color) and animates surface (emissive, UV distortion).
+        
+    3. C# controller broadcasts events or sets shader params (via `SetFloat` or `MaterialPropertyBlock`).
+        
+    4. Particle systems receive the same events and emit coordinated visual feedback (bursts, trails, decals).
+        
+- **Example pipeline:** sensor → event bus → `ShaderController` (material update) + `ParticleController` (emit) → post-process bloom/glow.
+    
+
+
 
 ### 7. Webcam Gesture Control
 
