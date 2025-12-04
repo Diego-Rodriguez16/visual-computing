@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Examen Final – Three.js</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        background: #111;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+      }
+      #info {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: #fff;
+        z-index: 10;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 8px 12px;
+        border-radius: 10px;
+        font-size: 14px;
+      }
+      #btnCam {
+        margin-top: 6px;
+        padding: 4px 10px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        background: #f5f5f5;
+      }
+      #btnCam:hover {
+        background: #444;
+        color: #fff;
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="info">
+      <div><strong>Escena 3D – Computación Visual</strong></div>
+      <div>Mouse: rotar, zoom; Botón: cambiar cámara</div>
+      <button id="btnCam">Cambiar cámara</button>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
