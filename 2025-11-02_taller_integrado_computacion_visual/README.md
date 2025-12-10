@@ -1,5 +1,13 @@
 ﻿# Integrated workshop - visual computing
 
+## Equipo:
+
+- Michael Sebastian Caicedo Rosero
+- Diego Leandro Rodriguez Diaz
+- Sergio David Motta Romero
+- Juan Diego Velasquez Pinzon
+- Breyner Ismael Ciro Otero
+
 ## Workshop Summary
 
 This repository documents the work completed for the workshop, showing interactive visual experiences that integrate 3D modeling, PBR materials, custom shaders, dynamic textures, multimodal sensing (voice, gestures, EEG), and camera or environment control. Each section explores a component of the graphics and sensory pipeline, uniting visual perception, light physics, procedural geometry, and human-computer interaction.
