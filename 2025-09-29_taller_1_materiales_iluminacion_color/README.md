@@ -1,6 +1,7 @@
 # Workshop 1: Materials, Lighting, and Color in a Virtual World
 
-Equipo:
+## Equipo:
+
 ● Michael Sebastian Caicedo Rosero
 ● Diego Leandro Rodriguez Diaz
 ● Sergio David Motta Romero
