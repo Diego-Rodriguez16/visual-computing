@@ -2,11 +2,11 @@
 
 ## Equipo:
 
-● Michael Sebastian Caicedo Rosero
-● Diego Leandro Rodriguez Diaz
-● Sergio David Motta Romero
-● Juan Diego Velasquez Pinzon
-● Breyner Ismael Ciro Otero
+- Michael Sebastian Caicedo Rosero
+- Diego Leandro Rodriguez Diaz
+- Sergio David Motta Romero
+- Juan Diego Velasquez Pinzon
+- Breyner Ismael Ciro Otero
 
 ## The Forgemaster's Workshop
 
