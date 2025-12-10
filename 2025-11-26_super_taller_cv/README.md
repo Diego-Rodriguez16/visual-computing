@@ -1,5 +1,13 @@
 # Taller Integrado: Computación Visual Avanzada 🎬
 
+## Equipo:
+
+- Michael Sebastian Caicedo Rosero
+- Diego Leandro Rodriguez Diaz
+- Sergio David Motta Romero
+- Juan Diego Velasquez Pinzon
+- Breyner Ismael Ciro Otero
+
 **Objetivo:** Implementación completa de visualización 3D interactiva con optimización visual y sistemas multimodales
 
 ---
