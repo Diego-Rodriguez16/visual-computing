@@ -1,5 +1,12 @@
 # Workshop 1: Materials, Lighting, and Color in a Virtual World
 
+Equipo:
+● Michael Sebastian Caicedo Rosero
+● Diego Leandro Rodriguez Diaz
+● Sergio David Motta Romero
+● Juan Diego Velasquez Pinzon
+● Breyner Ismael Ciro Otero
+
 ## The Forgemaster's Workshop
 
 This project presents an interactive 3D scene of a rustic forge, designed to explore how PBR and procedural materials react to different lighting schemes. The goal is to create a tangible atmosphere where light not only illuminates but also tells a story about the world's textures and surfaces. Using the **three js Editor**
