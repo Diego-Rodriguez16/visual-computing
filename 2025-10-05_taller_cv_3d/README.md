@@ -1,5 +1,13 @@
 ﻿# Visual Computing & 3D Workshop
 
+## Equipo:
+
+- Michael Sebastian Caicedo Rosero
+- Diego Leandro Rodriguez Diaz
+- Sergio David Motta Romero
+- Juan Diego Velasquez Pinzon
+- Breyner Ismael Ciro Otero
+
 ## Workshop Summary
 
 This repository documents the work completed for the Visual Computing & 3D Workshop. The primary goal of this workshop is to integrate key concepts from 3D graphics and computer vision into a series of practical, hands-on exercises. The topics explored range from fundamental image processing and color theory to real-time 3D rendering and gesture-based interaction.
